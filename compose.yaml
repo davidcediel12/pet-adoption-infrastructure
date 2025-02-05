@@ -1,6 +1,6 @@
 services:
   ux-users:
-    image: davidcediel12/experience-users:0.0.1-SNAPSHOT
+    image: ${DOCKER_REGISTRY_NAME}/experience-users:0.0.1-SNAPSHOT
     container_name: ux-users
     restart: always
     depends_on:
@@ -12,7 +12,7 @@ services:
     ports:
       - "8080:8080"
   sp-users:
-    image: davidcediel12/support-users:0.0.1-SNAPSHOT
+    image: ${DOCKER_REGISTRY_NAME}/support-users:0.0.1-SNAPSHOT
     container_name: sp-users
     restart: always
     depends_on:
