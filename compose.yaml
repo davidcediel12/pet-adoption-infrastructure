@@ -19,6 +19,8 @@ services:
       - postgres
     environment:
       SPRING_PROFILE: compose
+    ports:
+      - "8081:8080" # Just for testing purposes, this container doesn't need to be exposed
     networks:
       - gaia_backend
 
