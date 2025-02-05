@@ -1,6 +1,6 @@
 services:
   ux-users:
-    image: davidcediel12/ux-users:0.0.1-SNAPSHOT
+    image: davidcediel12/experience-users:0.0.1-SNAPSHOT
     container_name: ux-users
     restart: always
     depends_on:
