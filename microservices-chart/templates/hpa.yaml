@@ -2,14 +2,14 @@
 apiVersion: autoscaling/v2
 kind: HorizontalPodAutoscaler
 metadata:
-  name: {{ include "my-microsservice-chart.fullname" . }}
+  name: {{ .Values.appName }}
   labels:
-    {{- include "my-microsservice-chart.labels" . | nindent 4 }}
+    app: {{ .Values.appName }}
 spec:
   scaleTargetRef:
     apiVersion: apps/v1
     kind: Deployment
-    name: {{ include "my-microsservice-chart.fullname" . }}
+    name: {{ .Values.appName }}
   minReplicas: {{ .Values.autoscaling.minReplicas }}
   maxReplicas: {{ .Values.autoscaling.maxReplicas }}
   metrics:

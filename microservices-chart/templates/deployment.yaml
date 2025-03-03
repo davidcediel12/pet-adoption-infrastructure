@@ -5,13 +5,14 @@ metadata:
   {{- with .Values.podLabels }}
   labels:
     {{- toYaml . | nindent 8 }}
+  {{- end }}
 spec:
   {{- if not .Values.autoscaling.enabled }}
   replicas: {{ .Values.replicaCount }}
   {{- end }}
   selector:
     matchLabels:
-      app: {{ .Values.labels.app }}
+      app: {{ .Values.podLabels.app }}
   template:
     metadata:
       {{- with .Values.podAnnotations }}
