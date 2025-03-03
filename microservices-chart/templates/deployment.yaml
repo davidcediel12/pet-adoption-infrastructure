@@ -4,15 +4,17 @@ metadata:
   name: {{ .Values.appName }}
   {{- with .Values.podLabels }}
   labels:
-    {{- toYaml . | nindent 8 }}
+    {{- toYaml . | nindent 4 }}
   {{- end }}
 spec:
   {{- if not .Values.autoscaling.enabled }}
   replicas: {{ .Values.replicaCount }}
   {{- end }}
   selector:
+    {{- with .Values.podLabels }}
     matchLabels:
-      app: {{ .Values.podLabels.app }}
+      {{- toYaml . | nindent 8 }}
+    {{- end }}
   template:
     metadata:
       {{- with .Values.podAnnotations }}
@@ -42,12 +44,12 @@ spec:
               protocol: TCP
           livenessProbe:
             httpGet:
-              path: {{ .Values.livenessProbe.path }}
-              port: {{ .Values.livenessProbe.port }}
+              path: {{ .Values.livenessProbe.httpGet.path }}
+              port: {{ .Values.livenessProbe.httpGet.port }}
           readinessProbe:
             httpGet:
-              path: {{ .Values.readinessProbe.path }}
-              port: {{ .Values.readinessProbe.port }}
+              path: {{ .Values.readinessProbe.httpGet.path }}
+              port: {{ .Values.readinessProbe.httpGet.port }}
           {{- with .Values.resources }}
           resources:
             {{- toYaml . | nindent 12 }}
