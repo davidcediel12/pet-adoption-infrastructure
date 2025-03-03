@@ -1,0 +1,12 @@
+appName: ux-users
+
+image:
+  repository: davidcediel12/experience-users
+  pullPolicy: IfNotPresent
+  tag: "0.0.1-SNAPSHOT"
+
+podLabels:
+  appName: ux-users
+  
+service:
+  type: ClusterIP
