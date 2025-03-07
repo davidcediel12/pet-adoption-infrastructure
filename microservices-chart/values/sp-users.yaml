@@ -1,0 +1,9 @@
+appName: sp-users
+
+image:
+  repository: davidcediel12/support-users
+  pullPolicy: IfNotPresent
+  tag: "0.0.1-SNAPSHOT"
+
+podLabels:
+  appName: sp-users
