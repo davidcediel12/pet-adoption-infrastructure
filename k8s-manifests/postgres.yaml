@@ -58,3 +58,4 @@ spec:
   ports:
     - port: 5433
       targetPort: 5432
+  type: LoadBalancer # Access from outside the cluster, just for local purposes

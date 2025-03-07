@@ -8,4 +8,4 @@ image:
 podLabels:
   appName: ux-users
 service:
-  type: ClusterIP
+  type: LoadBalancer

@@ -36,4 +36,5 @@ spec:
   ports:
   - port: 6379
     targetPort: 6379
+  type: LoadBalancer # Access from outside the cluster, just for local purposes
 
