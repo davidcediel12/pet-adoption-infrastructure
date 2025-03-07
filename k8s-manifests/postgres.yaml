@@ -33,7 +33,7 @@ spec:
               memory: "512Mi"
               cpu: "500m"
           ports:
-            - containerPort: 5433
+            - containerPort: 5432
           volumeMounts:
             - name: postgres-storage
               mountPath: /var/lib/postgresql/data
@@ -56,6 +56,6 @@ spec:
   selector:
     app: postgres
   ports:
-    - port: 5433
+    - port: 5432
       targetPort: 5432
-  type: LoadBalancer # Access from outside the cluster, just for local purposes
+  type: ClusterIP
